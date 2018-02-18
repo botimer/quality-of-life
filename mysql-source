@@ -1,0 +1,14 @@
+#!/bin/bash
+# Limited wrapper for sourcing a file under a given database.
+# This was useful for use with entr, because the mysql command line client
+# expects to be piped the contents, rather than be supplied a filename.
+# See also mysql-watch for a handy autorunner with entr.
+if [[ -z "$2" ]]; then
+  echo "Usage: mysql-source <database> <file>"
+  exit -1
+fi
+
+DB="$1"
+shift
+CMD="source $@"
+mysql "$DB" -e "$CMD"

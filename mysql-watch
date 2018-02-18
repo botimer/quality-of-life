@@ -1,0 +1,13 @@
+#!/bin/bash
+# Convenience wrapper for using mysql-source with entr, to make an autorunner.
+# This works nicely with sudo, especially nice for MariaDB.
+if [[ -z "$2" ]]; then
+  echo "Usage: mysql-watch <database> <file or wildcard>"
+  echo "This script passes your filename to ls, so it can watch one or more files."
+  exit -1
+fi
+
+clear
+echo "Watching '$2' for changes..."
+
+ls "$2" | entr -c -p mysql-source "$1" /_

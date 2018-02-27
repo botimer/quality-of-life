@@ -1,0 +1,56 @@
+set rtp+=~/.fzf
+call plug#begin('~/.vim/plugged')
+Plug 'jonathanfilip/vim-lucius'
+Plug 'vim-scripts/xoria256.vim'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-sensible'
+Plug '~/.fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'joonty/vdebug'
+Plug 'lumiliet/vim-twig'
+Plug 'slim-template/vim-slim'
+call plug#end()
+
+set sw=4
+set ts=4
+set sts=4
+set et
+set nojoinspaces
+set grepprg=ag
+set ttymouse=xterm2
+set mouse=a
+
+set bg=dark
+color lucius
+
+nmap <c-f> :Files<CR>
+nmap <c-b> :Buffers<CR>
+nmap <Leader>d :NERDTreeToggle<CR>
+nmap <c-w>o :tab split<CR>
+
+nmap <leader>] :cn<CR>
+nmap <Leader>[ :cp<CR>
+
+function! TwoSpaces()
+  set sw=2
+  set ts=2
+  set sts=2
+endfunction
+
+function! SetSpaces(num)
+  setlocal sw  = &a:num
+  setlocal ts  = &a:num
+  setlocal sts = &a:num
+endfunction
+
+" Toggle tabs or spaces
+nmap <leader>t :set et!<cr>:set et?<cr>
+
+autocmd FileType ruby call TwoSpaces()
+autocmd FileType javascript call TwoSpaces()
+autocmd FileType yaml call TwoSpaces()
+autocmd FileType * setlocal formatoptions-=o
+

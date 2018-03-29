@@ -25,20 +25,34 @@ not too concerned.
 
 This is where the magic happens. So far, I only live on layer two. There is
 only one key that is mapped differently without using Fn: Escape, which is set
-to send backtick. Fn-` sends escape. Other Fn combinations are:
+to send backtick. Fn-` sends escape.
 
- * `a`: Ctrl-a -- for tmux sequences, especially Ctrl-a twice, or followed by arrows
+Some chording niceties for navigation and text editing:
+
  * `s`: Shift -- works as a regular modifier, left Shift
  * `d`: Ctrl -- right Ctrl (just in case I want to do something special)
  * `f`: Win -- left Win
  * `g`: Alt -- left Alt
+
+A few shell/Vim survival items:
+
+ * `a`: Ctrl-a -- for tmux sequences, especially Ctrl-a twice, or followed by arrows
  * `w`: Ctrl-w -- for Vim window sequences
+ * `c`: Ctrl-c -- most common and quickly needed control sequence at the shell
+ * `[`: Esc -- convenient escape, muscle memory from years of shell/Vim
+
+Speculative text editing accelerators:
+
+ * `Space`: Backspace -- for a few characters/words, this is very handy
+ * `;`: Enter -- why move two keys away?
+ * `'`: Hypen -- a little homage to Dvorak; dash on pinky always felt great
+ * '\': Insert -- since Insert moved, put it near delete
+
+Things I'll probably hit by muscle memory, but don't want to assign yet:
+
  * `e`: Shift -- mask Next with something harmless
  * `y`: Shift -- mask Cal
  * `p`: Shift -- mask PrtScr
- * `[`: Esc -- convenient escape, muscle memory from years of shell/Vim
- * `c`: Ctrl-c -- most common and quickly needed control sequence at the shell
- * `Space`: Backspace -- for a couple of characters/words, this is very handy
 
 This arrangement makes for extremely comfortable text movements and navigation
 with modifiers. They follow the physical key order, sort of getting

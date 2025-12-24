@@ -1,17 +1,18 @@
-set rtp+=~/.fzf
 call plug#begin('~/.vim/plugged')
 Plug 'jonathanfilip/vim-lucius'
+Plug 'arcticicestudio/nord-vim'
 Plug 'vim-scripts/xoria256.vim'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
-Plug '~/.fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'joonty/vdebug'
 Plug 'lumiliet/vim-twig'
 Plug 'slim-template/vim-slim'
+" Plug 'itchyny/lightline.vim'
 call plug#end()
 
 set sw=4
@@ -19,20 +20,50 @@ set ts=4
 set sts=4
 set et
 set nojoinspaces
-set grepprg=ag
-set ttymouse=xterm2
+set grepprg=rg\ --vimgrep
 set mouse=a
+let mapleader=","
+
+if !has('nvim')
+    set ttymouse=xterm2
+endif
+
+" Might not need this for new terminal mode
+" if has('nvim')
+"     tnoremap <Esc> <C-\><C-n>
+" endif
+
+
+noremap <ScrollWheelUp> 20<C-Y>
+noremap <ScrollWheelDown> 20<C-E>
+
+if has("gui_running")
+    set guioptions=gi
+	set gfn=Source\ Code\ Pro\ Medium\ 11
+    set guicursor=a:blinkon900
+    set guicursor=a:blinkoff700
+
+    set lines=40
+    set columns=120
+end
 
 set bg=dark
 color lucius
+" color nord
 
-nmap <c-f> :Files<CR>
-nmap <c-b> :Buffers<CR>
+" nmap <c-f> :Files<CR>
+" nmap <c-b> :Buffers<CR>
+nmap <Leader>f :Files<CR>
+nmap <Leader>b :Buffers<CR>
+" nmap <Leader>f :FZF
 nmap <Leader>d :NERDTreeToggle<CR>
-nmap <c-w>o :tab split<CR>
+nmap <Leader>e :NERDTreeFind<CR>
+" nmap <c-w>o :tab split<CR>
 
 nmap <leader>] :cn<CR>
 nmap <Leader>[ :cp<CR>
+nnoremap <c-n> :cn<CR>
+nnoremap <c-p> :cp<CR>
 
 function! TwoSpaces()
   set sw=2
@@ -47,7 +78,8 @@ function! SetSpaces(num)
 endfunction
 
 " Toggle tabs or spaces
-nmap <leader>t :set et!<cr>:set et?<cr>
+" nmap <leader>t :set et!<cr>:set et?<cr>
+nmap <leader><tab> :set et!<cr>:set et?<cr>
 
 autocmd FileType ruby call TwoSpaces()
 autocmd FileType javascript call TwoSpaces()

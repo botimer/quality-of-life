@@ -1,6 +1,70 @@
 WSL2 setup from scratch
 =======================
 
+Take Two, TLDR
+--------------
+
+The Windows Terminal is very good now -- it just needs some setup. The config
+is saved in JSON and available from the bottom left of the settings window.
+
+It's pretty easy to integrate the relevant settings by clicking, but the theme
+really needs to be pasted in. This is the nightfox/carbonfox theme translated
+from iTerm2 colors to the WSL form.
+
+```json
+    "profiles": 
+    {
+        "defaults": 
+        {
+            "colorScheme": "Carbonfox",
+            "font": 
+            {
+                "face": "MartianMono Nerd Font",
+                "features": 
+                {
+                    "aalt": 0
+                }
+
+            }
+        },
+    },
+    "schemes": 
+    [
+        {
+            "background": "#161616",
+            "black": "#282828",
+            "blue": "#78A9FF",
+            "brightBlack": "#484848",
+            "brightBlue": "#8CB6FF",
+            "brightCyan": "#52BDFF",
+            "brightGreen": "#46C880",
+            "brightPurple": "#C8A5FF",
+            "brightRed": "#F16DA6",
+            "brightWhite": "#E4E4E5",
+            "brightYellow": "#2DC7C4",
+            "cursorColor": "#F2F4F8",
+            "cyan": "#33B1FF",
+            "foreground": "#F2F4F8",
+            "green": "#25BE6A",
+            "name": "Carbonfox",
+            "purple": "#BE95FF",
+            "red": "#EE5396",
+            "selectionBackground": "#2A2A2A",
+            "white": "#DFDFE0",
+            "yellow": "#08BDBA"
+        }
+    ],
+```
+
+
+Use Cascadia Code (with ss19 / slashed zero) or download Martian Mono Nerd Font
+(and double-click install each).
+
+https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/MartianMono.zip
+https://sourcegraph.com/github.com/mbadolato/iTerm2-Color-Schemes/-/blob/schemes/Carbonfox.itermcolors
+https://github.com/rakheshster/iTerm2WindowsTerminal
+
+
 Preamble
 --------
 
@@ -126,3 +190,4 @@ after `wsl --install` could be automated and, even with the downloads and build,
 be ready to go probably within 2 minutes on "any" Windows machine.
 
 I'm impressed.
+

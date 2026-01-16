@@ -10,3 +10,6 @@ vim.o.expandtab = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.termguicolors = true
+
+-- neovide junk
+vim.g.neovide_cursor_animation_length = 0.006
